@@ -1,5 +1,5 @@
 ## Mobile Communications Course
 ## Dr Mohammadi
 ### Spring 2022
-#### This codes mainly covers Received Power relation with distance to BaseStation.
+#### These codes mainly cover Received Signals` Power relations to the distance from a random BaseStation.
 ##### yet to be explained...
