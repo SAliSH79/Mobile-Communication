@@ -1,2 +1,2 @@
-# Mobile-Communications
+# Mobile Communications
 ## Spring 2022
