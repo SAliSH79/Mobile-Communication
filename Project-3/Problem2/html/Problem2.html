@@ -1,0 +1,389 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Problem2</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-05-06"><meta name="DC.source" content="Problem2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">HW5</a></li><li><a href="#2">Q 2</a></li><li><a href="#3">Clear recent data</a></li><li><a href="#4">Initialization</a></li><li><a href="#5">Remake</a></li><li><a href="#6">Plotting</a></li><li><a href="#7">Modulator</a></li><li><a href="#8">Second part</a></li><li><a href="#9">Plotting</a></li><li><a href="#10">Reciever</a></li><li><a href="#11">Plottting</a></li><li><a href="#13">Decision</a></li><li><a href="#14">Plottting</a></li></ul></div><h2 id="1">HW5</h2><p>Teacher : Doctor_Mohammadi Author: [SeyedAli] - [SeyedHosseini] E-mail: [alishosseini79@aut.ac.ir]</p><pre class="codeinput"><span class="comment">%Student-Number : [9723042]</span>
+<span class="comment">% University: Amirkabir University of Technology</span>
+</pre><h2 id="2">Q 2</h2><h2 id="3">Clear recent data</h2><pre class="codeinput">clc;
+close <span class="string">all</span>;
+clear;
+</pre><h2 id="4">Initialization</h2><pre class="codeinput">clear;
+clc;
+<span class="comment">%b = input('Enter the Bit stream \n '); %b =  [0,1,1,0,0,1,0,1];</span>
+m =  [0,1,1,0,0,1,0,1];
+n = length(m);
+fs = 1e3;
+t = 0 : 1/fs : n; <span class="comment">%time</span>
+x = 1 : 1 : (n+2)*fs; <span class="comment">%index</span>
+<span class="keyword">for</span> i = 1  :n
+    <span class="keyword">if</span> (m(i) == 0)
+        b_p(i) = -1;
+    <span class="keyword">else</span>
+        b_p(i) = 1;
+    <span class="keyword">end</span>
+    <span class="keyword">for</span> j = i:.1:i+1
+        m(x(i*fs:(i+1)*fs)) = b_p(i);
+        <span class="keyword">if</span> (mod(i,2) == 0)
+           mQ(x(i*fs:(i+1)*fs)) = b_p(i);
+            mQ(x((i+1)*fs:(i+2)*fs)) = b_p(i);
+        <span class="keyword">else</span>
+           mI(x(i*fs:(i+1)*fs)) = b_p(i);
+            mI(x((i+1)*fs:(i+2)*fs)) = b_p(i);
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> (mod(n,2)~= 0)
+            mQ(x(n*fs:(n+1)*fs)) = -1;
+            mQ(x((n+1)*fs:(n+2)*fs)) = -1;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre><h2 id="5">Remake</h2><pre class="codeinput">m = m(fs:end);
+mI = mI(fs:(n+1)*fs);
+mQ = mQ(2*fs:(n+2)*fs);
+</pre><h2 id="6">Plotting</h2><pre class="codeinput">figure(1)
+subplot(211)
+stairs(t,mI)
+title(<span class="string">"Even data bits"</span>)
+axis([0 7 -1.5 1.5])
+xlabel (<span class="string">'t'</span>)
+ylabel(<span class="string">'mI(t)'</span>)
+grid <span class="string">on</span>
+legend(<span class="string">'m Inphase'</span>)
+
+subplot(212)
+stairs(t,mQ,<span class="string">"r"</span>)
+title(<span class="string">"Odd data bits"</span>)
+axis([0 7 -1.5 1.5])
+xlabel (<span class="string">'t'</span>)
+ylabel(<span class="string">'mQ(t)'</span>)
+grid <span class="string">on</span>
+legend(<span class="string">'m Quadrature'</span>)
+</pre><img vspace="5" hspace="5" src="Problem2_01.png" alt=""> <h2 id="7">Modulator</h2><pre class="codeinput">fc = 1/8; <span class="comment">%carrier frequency MHz with Nyquist rate</span>
+T = 8;<span class="comment">%micro seceond</span>
+clc;
+a = cos(2*pi*fc.*t) .* cos((pi.*t)/(2*T));
+fH = fc + 1/(4*T);
+fL = fc - 1/(4*T);
+deltaf = fH - fL ;
+x1 = bandpass(a,[fH-deltaf fH+deltaf],fs);
+y1 = bandpass(a,[fL-deltaf fL+deltaf],fs);
+</pre><h2 id="8">Second part</h2><pre class="codeinput">xt = -x1 + y1 ; <span class="comment">%after summation</span>
+yt = x1 + y1;
+
+clc;
+
+XtxI = xt.*mI ;
+YtxQ = yt.*mQ;
+
+Smsk = XtxI + YtxQ; <span class="comment">%Smsk(t)</span>
+</pre><h2 id="9">Plotting</h2><pre class="codeinput">figure(2)
+subplot(311)
+stairs(t,XtxI)
+title(<span class="string">"x(t)*mI(t)"</span>)
+<span class="comment">%axis([0 7 -1.5 1.5])</span>
+xlabel (<span class="string">'t'</span>)
+ylabel(<span class="string">'amp'</span>)
+grid <span class="string">on</span>
+legend(<span class="string">'x(t) * mI(t)'</span>)
+
+subplot(312)
+stairs(t,YtxQ,<span class="string">"r"</span>)
+title(<span class="string">"y(t) * mQ(t)"</span>)
+<span class="comment">%axis([0 7 -1.5 1.5])</span>
+xlabel (<span class="string">'t'</span>)
+ylabel(<span class="string">'amp'</span>)
+grid <span class="string">on</span>
+legend(<span class="string">'y(t) * mQ(t)'</span>)
+
+subplot(313)
+stairs(t,Smsk,<span class="string">"-k"</span>)
+title(<span class="string">"Smsk(t)"</span>)
+<span class="comment">%axis([0 7 -1.5 1.5])</span>
+xlabel (<span class="string">'t'</span>)
+ylabel(<span class="string">'amp'</span>)
+grid <span class="string">on</span>
+legend(<span class="string">'Smsk(t)'</span>)
+</pre><img vspace="5" hspace="5" src="Problem2_02.png" alt=""> <h2 id="10">Reciever</h2><pre class="codeinput">clc;
+S_rI = Smsk .*x1 ;
+S_rQ = Smsk .* y1;
+</pre><h2 id="11">Plottting</h2><pre class="codeinput">clc;
+figure(2)
+subplot(211)
+stairs(t,S_rI)
+title(<span class="string">"Output Signal of Smsk(t) * x(t)"</span>)
+<span class="comment">%axis([0 7 -1.5 1.5])</span>
+xlabel (<span class="string">'t'</span>)
+ylabel(<span class="string">'amp'</span>)
+grid <span class="string">on</span>
+
+subplot(212)
+stairs(t,S_rQ,<span class="string">"-r"</span>)
+title(<span class="string">"Output Signal of Smsk(t)*y(t)"</span>)
+<span class="comment">%axis([0 7 -1.5 1.5])</span>
+xlabel (<span class="string">'t'</span>)
+ylabel(<span class="string">'amp'</span>)
+grid <span class="string">on</span>
+</pre><img vspace="5" hspace="5" src="Problem2_03.png" alt=""> <pre class="codeinput">t0 = 1;
+t1 = 1;
+<span class="comment">% Integerator</span>
+OutI = cumtrapz(S_rI);
+OutQ = cumtrapz(S_rQ);
+t1 = 1 : 2*T : length(t) ;
+OutDecI =OutI(t1);
+OutDecQ = OutQ(t1);
+</pre><h2 id="13">Decision</h2><h2 id="14">Plottting</h2><pre class="codeinput">clc;
+figure(4)
+subplot(211)
+stairs(t1,OutDecI)
+title(<span class="string">"Output Signal of Integrator Inphase"</span>)
+<span class="comment">%axis([0 7 -1.5 1.5])</span>
+xlabel (<span class="string">'t'</span>)
+ylabel(<span class="string">'amp'</span>)
+grid <span class="string">on</span>
+
+subplot(212)
+stairs(t1,OutDecQ,<span class="string">"r"</span>)
+title(<span class="string">"Output Signal of Integrator Quadrature"</span>)
+<span class="comment">%axis([0 7 -1.5 1.5])</span>
+xlabel (<span class="string">'t'</span>)
+ylabel(<span class="string">'amp'</span>)
+grid <span class="string">on</span>
+</pre><img vspace="5" hspace="5" src="Problem2_04.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% HW5
+% Teacher : Doctor_Mohammadi
+% Author: [SeyedAli] - [SeyedHosseini]
+% E-mail: [alishosseini79@aut.ac.ir]
+%Student-Number : [9723042]
+% University: Amirkabir University of Technology
+
+%% Q 2
+%% Clear recent data
+clc;
+close all;
+clear;
+%% Initialization
+clear;
+clc;
+%b = input('Enter the Bit stream \n '); %b =  [0,1,1,0,0,1,0,1];
+m =  [0,1,1,0,0,1,0,1];
+n = length(m);
+fs = 1e3;
+t = 0 : 1/fs : n; %time
+x = 1 : 1 : (n+2)*fs; %index 
+for i = 1  :n
+    if (m(i) == 0)
+        b_p(i) = -1;
+    else
+        b_p(i) = 1;
+    end
+    for j = i:.1:i+1
+        m(x(i*fs:(i+1)*fs)) = b_p(i);
+        if (mod(i,2) == 0)
+           mQ(x(i*fs:(i+1)*fs)) = b_p(i);
+            mQ(x((i+1)*fs:(i+2)*fs)) = b_p(i);
+        else
+           mI(x(i*fs:(i+1)*fs)) = b_p(i);
+            mI(x((i+1)*fs:(i+2)*fs)) = b_p(i);
+        end
+        if (mod(n,2)~= 0)
+            mQ(x(n*fs:(n+1)*fs)) = -1;
+            mQ(x((n+1)*fs:(n+2)*fs)) = -1;
+        end
+    end
+end
+%% Remake
+m = m(fs:end);
+mI = mI(fs:(n+1)*fs);
+mQ = mQ(2*fs:(n+2)*fs);
+%% Plotting
+figure(1)
+subplot(211)
+stairs(t,mI)
+title("Even data bits")
+axis([0 7 -1.5 1.5])
+xlabel ('t')
+ylabel('mI(t)')
+grid on
+legend('m Inphase')
+
+subplot(212)
+stairs(t,mQ,"r")
+title("Odd data bits")
+axis([0 7 -1.5 1.5])
+xlabel ('t')
+ylabel('mQ(t)')
+grid on
+legend('m Quadrature')
+
+%% Modulator
+fc = 1/8; %carrier frequency MHz with Nyquist rate
+T = 8;%micro seceond
+clc;
+a = cos(2*pi*fc.*t) .* cos((pi.*t)/(2*T));
+fH = fc + 1/(4*T);
+fL = fc - 1/(4*T);
+deltaf = fH - fL ;
+x1 = bandpass(a,[fH-deltaf fH+deltaf],fs);
+y1 = bandpass(a,[fL-deltaf fL+deltaf],fs);
+
+%% Second part
+xt = -x1 + y1 ; %after summation
+yt = x1 + y1;
+
+clc;
+
+XtxI = xt.*mI ;
+YtxQ = yt.*mQ;
+
+Smsk = XtxI + YtxQ; %Smsk(t)
+%% Plotting
+figure(2)
+subplot(311)
+stairs(t,XtxI)
+title("x(t)*mI(t)")
+%axis([0 7 -1.5 1.5])
+xlabel ('t')
+ylabel('amp')
+grid on
+legend('x(t) * mI(t)')
+
+subplot(312)
+stairs(t,YtxQ,"r")
+title("y(t) * mQ(t)")
+%axis([0 7 -1.5 1.5])
+xlabel ('t')
+ylabel('amp')
+grid on
+legend('y(t) * mQ(t)')
+
+subplot(313)
+stairs(t,Smsk,"-k")
+title("Smsk(t)")
+%axis([0 7 -1.5 1.5])
+xlabel ('t')
+ylabel('amp')
+grid on
+legend('Smsk(t)')
+%% Reciever
+clc;
+S_rI = Smsk .*x1 ;
+S_rQ = Smsk .* y1;
+%% Plottting
+clc;
+figure(2)
+subplot(211)
+stairs(t,S_rI)
+title("Output Signal of Smsk(t) * x(t)")
+%axis([0 7 -1.5 1.5])
+xlabel ('t')
+ylabel('amp')
+grid on
+
+subplot(212)
+stairs(t,S_rQ,"-r")
+title("Output Signal of Smsk(t)*y(t)")
+%axis([0 7 -1.5 1.5])
+xlabel ('t')
+ylabel('amp')
+grid on
+%%
+t0 = 1;
+t1 = 1;
+% Integerator
+OutI = cumtrapz(S_rI);
+OutQ = cumtrapz(S_rQ);
+t1 = 1 : 2*T : length(t) ;
+OutDecI =OutI(t1);
+OutDecQ = OutQ(t1);
+
+%% Decision
+
+%% Plottting
+clc;
+figure(4)
+subplot(211)
+stairs(t1,OutDecI)
+title("Output Signal of Integrator Inphase")
+%axis([0 7 -1.5 1.5])
+xlabel ('t')
+ylabel('amp')
+grid on
+
+subplot(212)
+stairs(t1,OutDecQ,"r")
+title("Output Signal of Integrator Quadrature")
+%axis([0 7 -1.5 1.5])
+xlabel ('t')
+ylabel('amp')
+grid on
+
+
+
+
+##### SOURCE END #####
+--></body></html>
